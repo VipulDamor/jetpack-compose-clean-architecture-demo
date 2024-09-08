@@ -50,7 +50,7 @@ This project is structured following **Clean Architecture**, ensuring scalabilit
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/VipulDamor/jetpack-compose-clean-architecture-demo
    ```
 2. Open the project in Android Studio.
 3. Sync Gradle and build the project.
