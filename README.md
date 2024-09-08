@@ -19,7 +19,7 @@ Welcome to the **Jetpack Compose Clean Architecture Demo** project! This app dem
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="path_to_your_screenshot" alt="App Screenshot" width="250">
+  <img src="/images/img.png" alt="App Screenshot" width="250">
   <!-- You can add multiple screenshots by repeating the line above -->
 </p>
 
