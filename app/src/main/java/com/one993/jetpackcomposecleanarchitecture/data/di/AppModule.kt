@@ -1,11 +1,13 @@
 package com.one993.jetpackcomposecleanarchitecture.data.di
 
+import android.content.Context
 import com.one993.jetpackcomposecleanarchitecture.data.api.ProductService
 import com.one993.jetpackcomposecleanarchitecture.data.repository.ProductRepositoryImpl
 import com.one993.jetpackcomposecleanarchitecture.domain.repository.ProductRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,7 +28,7 @@ object AppModule {
     }
 
     @Provides
-    fun provideProductRepository(productService: ProductService): ProductRepository {
-        return ProductRepositoryImpl(productService)
+    fun provideProductRepository(productService: ProductService, @ApplicationContext context: Context): ProductRepository {
+        return ProductRepositoryImpl(productService,context)
     }
 }
