@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -22,14 +23,10 @@ class ProductListViewmodelImpl @Inject constructor(
     private val getAllProductUseCase: GetAllProductUseCase
 ) : ViewModel() {
 
-    init {
-        getProductList()
-    }
-
     private val _homeScreenStates: MutableStateFlow<HomeScreenStates> =
         MutableStateFlow(HomeScreenStates.Loading)
 
-    val homeScreenStates = _homeScreenStates.stateIn(
+    val homeScreenStates = _homeScreenStates.onStart { getProductList() }.stateIn(
         viewModelScope,
         SharingStarted.Eagerly,
         initialValue = HomeScreenStates.Loading
