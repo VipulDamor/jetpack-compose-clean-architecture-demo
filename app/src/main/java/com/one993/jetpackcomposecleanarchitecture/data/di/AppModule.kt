@@ -1,6 +1,7 @@
 package com.one993.jetpackcomposecleanarchitecture.data.di
 
 import android.content.Context
+import com.one993.jetpackcomposecleanarchitecture.core.utils.NetworkUtil
 import com.one993.jetpackcomposecleanarchitecture.data.api.ProductService
 import com.one993.jetpackcomposecleanarchitecture.data.repository.ProductRepositoryImpl
 import com.one993.jetpackcomposecleanarchitecture.domain.repository.ProductRepository
@@ -28,7 +29,7 @@ object AppModule {
     }
 
     @Provides
-    fun provideProductRepository(productService: ProductService, @ApplicationContext context: Context): ProductRepository {
-        return ProductRepositoryImpl(productService,context)
+    fun provideProductRepository(productService: ProductService,networkUtil: NetworkUtil): ProductRepository {
+        return ProductRepositoryImpl(productService,networkUtil)
     }
 }

@@ -1,13 +1,16 @@
 package com.one993.jetpackcomposecleanarchitecture.core.utils
+
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.os.Build
+import javax.inject.Inject
 
-object NetworkUtils {
+class NetworkUtilsImpl @Inject constructor(private val context: Context) : NetworkUtil {
 
-    fun isInternetAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    override
+    fun isInternetAvailable(): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
         return when {
@@ -17,5 +20,8 @@ object NetworkUtils {
             else -> false
         }
     }
+}
 
+interface NetworkUtil {
+    fun isInternetAvailable(): Boolean
 }
