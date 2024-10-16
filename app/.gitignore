@@ -1,1 +1,29 @@
 /build
+# Build directories
+build/
+out/
+
+# Local configuration files
+local.properties
+
+# Temporary files
+*.swp
+*.tmp
+*.swo
+
+# Proguard and Log files
+proguard/
+*.log
+
+# APK files
+*.apk
+*.ap_
+
+# Other generated files
+/generated/
+*.dex
+*.class
+
+# IntelliJ specific files
+/.idea/
+*.iml

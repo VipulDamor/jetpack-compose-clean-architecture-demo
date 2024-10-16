@@ -13,3 +13,36 @@
 .externalNativeBuild
 .cxx
 local.properties
+# Gradle files
+.gradle/
+build/
+**/build/
+!gradle/wrapper/gradle-wrapper.properties
+
+
+# Gradle dependency cache directories
+**/.gradle/
+**/gradle-cache/
+
+# Android Studio specific
+/.idea/
+*.hprof
+
+# Keystore files
+*.jks
+*.keystore
+
+# macOS specific
+
+# Other IDE specific files
+*.log
+*.tmp
+*.bak
+*.orig
+
+# Miscellaneous files
+*.lock
+*.zip
+*.tar.gz
+*.tgz
+*.gzip
