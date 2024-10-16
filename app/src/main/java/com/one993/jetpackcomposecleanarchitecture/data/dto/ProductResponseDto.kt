@@ -1,8 +1,8 @@
-package com.one993.jetpackcomposecleanarchitecture.domain.models
+package com.one993.jetpackcomposecleanarchitecture.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductResponse(
+data class ProductResponseDto(
 
 	@field:SerializedName("total")
 	val total: Int? = null,
@@ -14,10 +14,10 @@ data class ProductResponse(
 	val skip: Int? = null,
 
 	@field:SerializedName("products")
-	val products: List<ProductsItem?>? = null
+	val products: List<ProductsItemDto?>? = null
 )
 
-data class Meta(
+data class MetaDto(
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
@@ -32,7 +32,7 @@ data class Meta(
 	val updatedAt: String? = null
 )
 
-data class ProductsItem(
+data class ProductsItemDto(
 
 	@field:SerializedName("images")
 	val images: List<String?>? = null,
@@ -68,13 +68,13 @@ data class ProductsItem(
 	val discountPercentage: Any? = null,
 
 	@field:SerializedName("reviews")
-	val reviews: List<ReviewsItem?>? = null,
+	val reviews: List<ReviewsItemDto?>? = null,
 
 	@field:SerializedName("price")
 	val price: Any? = null,
 
 	@field:SerializedName("meta")
-	val meta: Meta? = null,
+	val metaDto: MetaDto? = null,
 
 	@field:SerializedName("shippingInformation")
 	val shippingInformation: String? = null,
@@ -98,10 +98,10 @@ data class ProductsItem(
 	val brand: String? = null,
 
 	@field:SerializedName("dimensions")
-	val dimensions: Dimensions? = null
+	val dimensionsDto: DimensionsDto? = null
 )
 
-data class ReviewsItem(
+data class ReviewsItemDto(
 
 	@field:SerializedName("date")
 	val date: String? = null,
@@ -119,7 +119,7 @@ data class ReviewsItem(
 	val comment: String? = null
 )
 
-data class Dimensions(
+data class DimensionsDto(
 
 	@field:SerializedName("depth")
 	val depth: Any? = null,

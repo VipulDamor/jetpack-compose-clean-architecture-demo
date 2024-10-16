@@ -4,10 +4,9 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.one993.jetpackcomposecleanarchitecture.core.ResultState
-import com.one993.jetpackcomposecleanarchitecture.data.dto.ProductDto
+import com.one993.jetpackcomposecleanarchitecture.domain.models.Product
 import com.one993.jetpackcomposecleanarchitecture.domain.usecase.GetAllProductUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -48,7 +47,7 @@ class ProductListViewmodelImpl @Inject constructor(
         }
     }
 
-    private fun handleProductResponse(response: ResultState<List<ProductDto>?>) {
+    private fun handleProductResponse(response: ResultState<List<Product>?>) {
         Log.d("TAG", "handleProductResponse: $response")
         when (response) {
             is ResultState.Error -> setProductListState(HomeScreenStates.Error(response.message))

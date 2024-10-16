@@ -1,22 +1,22 @@
 package com.one993.jetpackcomposecleanarchitecture.data.mappers
 
-import com.one993.jetpackcomposecleanarchitecture.data.dto.ProductDto
-import com.one993.jetpackcomposecleanarchitecture.data.dto.ProductListDto
-import com.one993.jetpackcomposecleanarchitecture.domain.models.ProductResponse
-import com.one993.jetpackcomposecleanarchitecture.domain.models.ProductsItem
+import com.one993.jetpackcomposecleanarchitecture.domain.models.Product
+import com.one993.jetpackcomposecleanarchitecture.domain.models.ProductList
+import com.one993.jetpackcomposecleanarchitecture.data.dto.ProductResponseDto
+import com.one993.jetpackcomposecleanarchitecture.data.dto.ProductsItemDto
 
-fun ProductResponse.toDomain() = ProductListDto(
+fun ProductResponseDto.toDomain() = ProductList(
     productList = products.toDomainList(),
     total = total ?: 0,
     skip = skip ?: 0,
     limit = limit ?: 0
 )
 
-fun List<ProductsItem?>?.toDomainList(): List<ProductDto> {
+fun List<ProductsItemDto?>?.toDomainList(): List<Product> {
     return this?.mapNotNull { it?.toDomain() } ?: emptyList()
 }
 
-fun ProductsItem.toDomain() = ProductDto(
+fun ProductsItemDto.toDomain() = Product(
     id = id ?: 0,
     title = title.orEmpty(),
     description = description.orEmpty()

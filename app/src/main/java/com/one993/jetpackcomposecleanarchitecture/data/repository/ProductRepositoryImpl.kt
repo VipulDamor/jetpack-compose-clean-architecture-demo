@@ -5,7 +5,7 @@ import android.util.Log
 import com.one993.jetpackcomposecleanarchitecture.core.ResultState
 import com.one993.jetpackcomposecleanarchitecture.core.utils.NetworkUtils
 import com.one993.jetpackcomposecleanarchitecture.data.api.ProductService
-import com.one993.jetpackcomposecleanarchitecture.data.dto.ProductDto
+import com.one993.jetpackcomposecleanarchitecture.domain.models.Product
 import com.one993.jetpackcomposecleanarchitecture.data.mappers.toDomain
 import com.one993.jetpackcomposecleanarchitecture.domain.repository.ProductRepository
 import javax.inject.Inject
@@ -16,7 +16,7 @@ class ProductRepositoryImpl @Inject constructor(
 
 ) : ProductRepository {
 
-    override suspend fun getProductList(): ResultState<List<ProductDto>?> {
+    override suspend fun getProductList(): ResultState<List<Product>?> {
         return try {
             Log.d("Network", "getProductList: ${NetworkUtils.isInternetAvailable(context)}")
             if (NetworkUtils.isInternetAvailable(context)) {

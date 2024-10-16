@@ -24,7 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.one993.jetpackcomposecleanarchitecture.data.dto.ProductDto
+import com.one993.jetpackcomposecleanarchitecture.domain.models.Product
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -81,7 +81,7 @@ private fun HomeScreenContent(states: HomeScreenStates) {
 }
 
 @Composable
-private fun HomeScreenView(list: List<ProductDto>) {
+private fun HomeScreenView(list: List<Product>) {
     LazyColumn {
         itemsIndexed(items = list) { _, item ->
             HomeScreenItemView(item)
@@ -90,7 +90,7 @@ private fun HomeScreenView(list: List<ProductDto>) {
 }
 
 @Composable
-private fun HomeScreenItemView(item: ProductDto) {
+private fun HomeScreenItemView(item: Product) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
